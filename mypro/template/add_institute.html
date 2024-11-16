@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institute Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Institute Registration</h2>
+        <form method="POST" action="{% url 'institute_create' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="inst_name">Institute Name</label>
+                <input type="text" name="inst_name" id="inst_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="code">Code</label>
+                <input type="text" name="code" id="code" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea name="address" id="address" class="form-control" required></textarea>
+            </div>
+           
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" id="phone" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="registration_number">Registration Number</label>
+                <input type="text" name="registration_number" id="registration_number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="established_date">Established Date</label>
+                <input type="date" name="established_date" id="established_date" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="contact_person">Contact Person</label>
+                <input type="text" name="contact_person" id="contact_person" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" name="state" id="state" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="zip_code">ZIP Code</label>
+                <input type="text" name="zip_code" id="zip_code" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" name="country" id="country" class="form-control">
+            </div>
+           
+            <div class="form-group">
+                <label for="number_of_students">Number of Students</label>
+                <input type="number" name="number_of_students" id="number_of_students" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+{% for msg in messages %}
+<script>alert('{{msg}}')</script>
+{% endfor %}
+</html>

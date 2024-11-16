@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institute List</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Institutes List</h2>
+        <table class="table table-bordered table-striped" border="2">
+            <thead>
+                <tr>
+                    <th>Institute Name</th>
+                    <th>Code</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Phone</th>
+                    <th>Registration Number</th>
+                    <th>Established Date</th>
+                    <th>Contact Person</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>ZIP Code</th>
+                    <th>Country</th>
+                    <th>Verified</th>
+                    <th>Number of Students</th>
+                    <th>Created At</th>
+                    <th>reject</th>
+                    <th>approve</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for institute in institutes %}
+                <tr>
+                    <td>{{ institute.inst_name }}</td>
+                    <td>{{ institute.code }}</td>
+                    <td>{{ institute.email }}</td>
+                    <td>{{ institute.address }}</td>
+                    <td>{{ institute.status }}</td>
+                    <td>{{ institute.phone }}</td>
+                    <td>{{ institute.registration_number }}</td>
+                    <td>{{ institute.established_date }}</td>
+                    <td>{{ institute.contact_person }}</td>
+                    <td>{{ institute.city }}</td>
+                    <td>{{ institute.state }}</td>
+                    <td>{{ institute.zip_code }}</td>
+                    <td>{{ institute.country }}</td>
+                    <td>{{ institute.is_verified|yesno:"Yes,No" }}</td>
+                    <td>{{ institute.number_of_students }}</td>
+                    <td>{{ institute.created_at }}</td>
+                    <td>
+                        <a href="{% url 'institute_reject' institute.id %}" class="btn btn-danger">Reject</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'institute_approve' institute.id %}" class="btn btn-success">Approve</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
